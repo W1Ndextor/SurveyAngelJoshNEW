@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 23, 2017 6:28:01 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="survey.Respondent" table="respondent" catalog="survey_db" optimistic-lock="version">
+        <id name="respondentId" type="int">
+            <column name="Respondent_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="respondentEmail" type="string">
+            <column name="Respondent_Email" not-null="true" />
+        </property>
+        <set name="surveyRespondents" table="survey_respondent" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Respondent_ID" not-null="true" />
+            </key>
+            <one-to-many class="survey.SurveyRespondent" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="template.xhtml">
+
+    <ui:define name="body">
+        <h:form>
+            <h:dataTable value="#{deleteSurveyController.surveyTitle}" var="item" border="0" cellpadding="2" cellspacing="0">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Survey Title" />
+                    </f:facet>
+                    <h:outputText value="#{item.surveyName}" />
+                </h:column>
+                
+                <h:column> 
+                    <h:commandButton value="Delete Survey" action="#{deleteSurveyController.deleteSurvey(item.surveyId)}" />
+                   
+                </h:column>
+            </h:dataTable>
+               <h:commandButton id="Next" value="Next" onclick="#{respondentController.dropItHard()}" action="index.xhtml" />
+        </h:form>
+        
+        <!--<h:form>
+            <h:dataTable value="#{deleteSurveyController.questions}" var="item" border="0" cellpadding="2" cellspacing="0">          
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Questions" />
+                    </f:facet>
+                    <h:outputText value="#{item.questionText}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>-->
+      
+    </ui:define>
+    
+
+</ui:composition>
+</html>

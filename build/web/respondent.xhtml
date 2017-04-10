@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+    <ui:composition template="template.xhtml">
+
+        <ui:define name="body">
+            <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputText value="Respondent" />
+                    <h:inputText id="Respondent_Email" autocomplete="off" value="#{respondentController.respondentEmail}" 
+                                 size="50" maxlength="45" required="true" label="Respondent" />
+                    <h:message for="Respondent_Email" style="color: red; font-size: 0.7em" />
+
+                    <h:outputText value="Respondent1" />
+                    <h:inputText id="Respondent_Email1" autocomplete="off" value="#{respondentController.respondentEmail1}" 
+                                 size="50" maxlength="45" required="false" label="Respondent1" />
+                    <h:message for="Respondent_Email1" style="color: red; font-size: 0.7em" />
+
+                    <h:outputText value="Respondent2" />
+                    <h:inputText id="Respondent_Email2" autocomplete="off" value="#{respondentController.respondentEmail2}" 
+                                 size="50" maxlength="45" required="false" label="Respondent2" />
+                    <h:message for="Respondent_Email2" style="color: red; font-size: 0.7em" />
+
+                    <h:outputText value="Respondent3" />
+                    <h:inputText id="Respondent_Email3" autocomplete="off" value="#{respondentController.respondentEmail3}" 
+                                 size="50" maxlength="45" required="false" label="Respondent3" />
+                    <h:message for="Respondent_Email3" style="color: red; font-size: 0.7em" />
+
+                    <h:outputText value="Respondent4" />
+                    <h:inputText id="Respondent_Email4" autocomplete="off" value="#{respondentController.respondentEmail4}" 
+                                 size="50" maxlength="45" required="false" label="Respondent4" />
+                    <h:message for="Respondent_Email4" style="color: red; font-size: 0.7em" />
+                </h:panelGrid>
+
+                <h:commandButton id="Submit" value="Submit" onclick="reset" action="respondent" />
+                <h:commandButton id="Next" value="Next" onclick="#{questionController.clear()}" action="deleteSurvey.xhtml" />
+                <h:commandButton value="Clear" type="reset" />
+            </h:form>
+            <h:outputText escape="false" value="#{respondentController.response}" />
+        </ui:define>
+
+    </ui:composition>
+</html>

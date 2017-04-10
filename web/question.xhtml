@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+<ui:composition template="template.xhtml">
+
+    <ui:define name="body">
+        <h:form>
+                <h:panelGrid columns="3">
+                     
+                   
+                    
+                    <h:outputText value="Question 1" />
+                    <h:inputText id="Question_Text" autocomplete="off" value="#{questionController.questionText}" 
+                                 size="50" maxlength="100" required="true" label="QuestionText"/>
+                    <h:message for="Question_Text" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 2" />
+                    <h:inputText id="Question_Text1" autocomplete="off" value="#{questionController.questionText1}" 
+                         size="50" maxlength="100" required="false" label="QuestionText1" />
+                    <h:message for="Question_Text1" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 3" />
+                    <h:inputText id="Question_Text2" autocomplete="off" value="#{questionController.questionText2}" 
+                         size="50" maxlength="100" required="false" label="QuestionText2" />
+                    <h:message for="Question_Text2" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 4" />
+                    <h:inputText id="Question_Text3" autocomplete="off" value="#{questionController.questionText3}" 
+                         size="50" maxlength="100" required="false" label="QuestionText3" />
+                    <h:message for="Question_Text3" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 5" />
+                    <h:inputText id="Question_Text4" autocomplete="off" value="#{questionController.questionText4}" 
+                         size="50" maxlength="100" required="false" label="QuestionText4" />
+                    <h:message for="Question_Text4" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 6" />
+                    <h:inputText id="Question_Text5" autocomplete="off" value="#{questionController.questionText5}" 
+                         size="50" maxlength="100" required="false" label="QuestionText5" />
+                    <h:message for="Question_Text5" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 7" />
+                    <h:inputText id="Question_Text6" autocomplete="off" value="#{questionController.questionText6}" 
+                         size="50" maxlength="100" required="false" label="QuestionText6" />
+                    <h:message for="Question_Text6" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 8" />
+                    <h:inputText id="Question_Text7" autocomplete="off" value="#{questionController.questionText7}" 
+                         size="50" maxlength="100" required="false" label="QuestionText7" />
+                    <h:message for="Question_Text7" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 8" />
+                    <h:inputText id="Question_Text8" autocomplete="off" value="#{questionController.questionText8}" 
+                         size="50" maxlength="100" required="false" label="QuestionText8" />
+                    <h:message for="Question_Text8" style="color: red; font-size: 0.7em" />
+                    
+                    <h:outputText value="Question 10" />
+                    <h:inputText id="Question_Text9" autocomplete="off" value="#{questionController.questionText9}" 
+                         size="50" maxlength="100" required="false" label="QuestionText9" />
+                    <h:message for="Question_Text9" style="color: red; font-size: 0.7em" />
+                    
+                    
+                     
+                    
+                    
+                </h:panelGrid>
+            <!-- this needs to go into my code //the question controller will now have the survey id to insert into the database done-->
+            <h:inputHidden id ="hidden" value="#{questionController.surveyID}" />
+            
+           <!-- //the question controller will now have the survey id to insert into the database done-->
+                        <h:commandButton id="Submit" value="Submit" onclick="reset" action="question" />
+                        <h:commandButton id="Next" value="Next" onclick="#{surveyController.clear()}" action="#{respondentController.getSurveyIds(questionController.surveyID)}" />
+                        <h:commandButton value="Clear" type="reset" />
+        </h:form>
+        <h:outputText escape="false" value="#{questionController.response}" />
+    </ui:define>
+
+</ui:composition>
+</html>

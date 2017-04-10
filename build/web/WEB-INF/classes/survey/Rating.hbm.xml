@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 23, 2017 6:28:01 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="survey.Rating" table="rating" catalog="survey_db" optimistic-lock="version">
+        <id name="ratingId" type="int">
+            <column name="Rating_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="ratingCode" type="string">
+            <column name="Rating_Code" length="1" not-null="true" />
+        </property>
+        <property name="ratingDescription" type="string">
+            <column name="Rating_Description" length="45" not-null="true" />
+        </property>
+        <set name="responses" table="response" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Rating_ID" />
+            </key>
+            <one-to-many class="survey.Response" />
+        </set>
+    </class>
+</hibernate-mapping>

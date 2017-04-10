@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 23, 2017 6:28:01 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="survey.Survey" table="survey" catalog="survey_db" optimistic-lock="version">
+        <id name="surveyId" type="int">
+            <column name="Survey_ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="user" class="survey.User" fetch="select">
+            <column name="User_ID" not-null="true" />
+        </many-to-one>
+        <property name="surveyName" type="string">
+            <column name="Survey_Name" length="100" not-null="true" />
+        </property>
+        <set name="surveyRespondents" table="survey_respondent" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Survey_ID" not-null="true" />
+            </key>
+            <one-to-many class="survey.SurveyRespondent" />
+        </set>
+        <set name="questions" table="question" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Survey_ID" not-null="true" />
+            </key>
+            <one-to-many class="survey.Question" />
+        </set>
+    </class>
+</hibernate-mapping>
