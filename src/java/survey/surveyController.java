@@ -50,7 +50,8 @@ public class surveyController implements Serializable {
         surveyName=null;
         response=null;
         survey=null;
-        surveyID=getSurveyID();
+       // surveyID=getSurveyID();
+       surveyID=getSurveyID();
         //surveyid not being cleared here but in questions clear method. maybe include it here.
         
         

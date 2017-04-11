@@ -55,6 +55,7 @@ public class UserController implements Serializable {
     public void setUserEmail(String UserEmail) {
         this.UserEmail = UserEmail;
     }
+    
     public void clear(){
         UserEmail=null;
         UserFname=null;
@@ -64,6 +65,7 @@ public class UserController implements Serializable {
         
     }
 
+    //This is a change to the usercontroller file to ensure that the project and files push correctly.
     
 
     public String getResponse() {
